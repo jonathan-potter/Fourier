@@ -12,7 +12,6 @@
         for (n = 0; n < N; n++) {
             for (k = 0; k < K; k++) {
                 if (!Complex.equals(X[n][k], Y[n][k])) return false;
-                console.log("X: " + X[n][k].real +  ", Y: " + Y[n][k].real);
             }
         }
 

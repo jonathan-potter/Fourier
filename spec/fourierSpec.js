@@ -15,7 +15,7 @@ describe("Fourier", function () {
             correctMatrix = [
                 [{real: 1, imaginary: 0}, {real:  1, imaginary:  0}, {real:  1, imaginary:  0}, {real:  1, imaginary:  0}],
                 [{real: 1, imaginary: 0}, {real: -0, imaginary: -1}, {real: -1, imaginary: -0}, {real:  0, imaginary:  1}],
-                [{real: 1, imaginary: 0}, {real: -1, imaginary: -0}, {real:  1, imaginary:  0}, {real:  1, imaginary: -0}],
+                [{real: 1, imaginary: 0}, {real: -1, imaginary: -0}, {real:  1, imaginary:  0}, {real: -1, imaginary: -0}],
                 [{real: 1, imaginary: 0}, {real:  0, imaginary:  1}, {real: -1, imaginary: -0}, {real: -0, imaginary: -1}]
             ];
             matrix = Fourier.DFTMatrix(N);

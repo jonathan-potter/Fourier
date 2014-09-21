@@ -18,7 +18,7 @@
 		}
 
 		return matrix;
-	}
+	};
 
 	DFT = Fourier.DFT = function (N, x) {
 		var B, X;
@@ -28,5 +28,5 @@
 		B = Matrix.complexMultiply(X, x);
 
 		return B;
-	}
+	};
 })();
