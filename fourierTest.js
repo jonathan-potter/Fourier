@@ -38,7 +38,7 @@
 			data[i + 4 * pixel + 2] = 0;
 			data[i + 4 * pixel + 3] = 255;
 			}
-		}
+		});
 
 		ctx.putImageData(imageData, 0, 0);
 		console.log("done!");
