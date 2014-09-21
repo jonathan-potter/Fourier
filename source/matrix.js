@@ -11,7 +11,9 @@
         K = X[0].length;
         _.times(N, function (n) {
             _.times(K, function (k) {
-                if (!Complex.equals(X[n][k], Y[n][k])) return false;
+                if (!Complex.equals(X[n][k], Y[n][k])) {
+                    return false;
+                }
             });
         });
 

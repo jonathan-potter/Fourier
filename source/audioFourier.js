@@ -1,5 +1,5 @@
 ;(function () {
-	var transform;
+	var filter, transform;
 
 	AudioFourier = window.AudioFourier || {};
 
@@ -23,4 +23,16 @@
 
         return frequencyMatrix;
 	};
+
+    filter = AudioFourier.filter = function (frequencyMatrix, filter) {
+        var complexFilterElement;
+
+        return _.map(frequencyMatrix, function (segment) {
+            return _.map(segment, function (sample, sampleIndex) {
+                complexFilterElement = {real: filter[sampleIndex], imaginary: 0};
+
+                return Complex.multiply(sample, complexFilterElement);
+            });
+        });
+    };
 })();
