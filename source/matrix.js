@@ -1,7 +1,8 @@
 ;(function () {
-	var comlexAddition, complexMuliply;
+	var complexEquals, complexMuliply, Matrix;
 
-	Matrix = window.Matrix || {};
+	JP = window.JP || {};
+    Matrix = JP.Matrix = {};
 
     complexEquals = Matrix.complexEquals = function (X, Y) {
         /** I am assumeing you gave me two equally sized matrices **/
@@ -11,7 +12,7 @@
         K = X[0].length;
         _.times(N, function (n) {
             _.times(K, function (k) {
-                if (!Complex.equals(X[n][k], Y[n][k])) {
+                if (!JP.Complex.equals(X[n][k], Y[n][k])) {
                     return false;
                 }
             });
@@ -33,7 +34,7 @@
 
 			B[k] = {real: 0, imaginary: 0};
             _.times(N, function (n) {
-				B[k] =  Complex.addition(Complex.multiply(X[k][n], x[n]), B[k]);
+				B[k] =  JP.Complex.addition(JP.Complex.multiply(X[k][n], x[n]), B[k]);
 			});
         });
 

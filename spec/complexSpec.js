@@ -9,11 +9,11 @@ describe("Complex", function () {
         });
 
         it("returns true for complex numbers that are equal", function () {
-            expect(Complex.equals(equal1, equal2)).toBe(true);
+            expect(JP.Complex.equals(equal1, equal2)).toBe(true);
         });
 
         it("returns false for complex numbers that are not equal", function () {
-            expect(Complex.equals(equal1, notEqual)).toBe(false);
+            expect(JP.Complex.equals(equal1, notEqual)).toBe(false);
         });
     });
 
@@ -29,9 +29,9 @@ describe("Complex", function () {
             var rightAnswer, answer;
 
             rightAnswer = {real: 7.77, imaginary: 9.99};
-            answer      = Complex.addition(number1, number2);
+            answer      = JP.Complex.addition(number1, number2);
 
-            expect(Complex.equals(answer, rightAnswer)).toBe(true);
+            expect(JP.Complex.equals(answer, rightAnswer)).toBe(true);
         });
     });
 
@@ -47,9 +47,9 @@ describe("Complex", function () {
             var rightAnswer, answer;
 
             rightAnswer = {real: 0, imaginary: -8};
-            answer      = Complex.multiply(number1, number2);
+            answer      = JP.Complex.multiply(number1, number2);
 
-            expect(Complex.equals(answer, rightAnswer)).toBe(true);
+            expect(JP.Complex.equals(answer, rightAnswer)).toBe(true);
         });
     });
 });

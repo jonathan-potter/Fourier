@@ -45,9 +45,9 @@ describe("AudioFourier", function () {
                 ]
             ];
 
-            B = AudioFourier.transform(N, x);
+            B = JP.AudioFourier.transform(N, x);
 
-            expect(Matrix.complexEquals(B, correctB)).toBe(true);
+            expect(JP.Matrix.complexEquals(B, correctB)).toBe(true);
         });
     });
 
@@ -119,9 +119,9 @@ describe("AudioFourier", function () {
                 ]
             ];
 
-            filteredFrequencyMatrix = AudioFourier.filter(frequencyMatrix, filter);
+            filteredFrequencyMatrix = JP.AudioFourier.filter(frequencyMatrix, filter);
 
-            expect(Matrix.complexEquals(filteredFrequencyMatrix, correctResult)).toBe(true);
+            expect(JP.Matrix.complexEquals(filteredFrequencyMatrix, correctResult)).toBe(true);
         });
     });
 });

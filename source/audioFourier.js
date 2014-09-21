@@ -1,7 +1,8 @@
 ;(function () {
-	var filter, transform;
+	var AudioFourier, filter, transform;
 
-	AudioFourier = window.AudioFourier || {};
+	JP = window.JP || {};
+    AudioFourier = JP.AudioFourier = {};
 
 	transform = AudioFourier.transform = function (N, signal) {
         var B, frequencyMatrix, segmentIndex, SEGMENTS, x;
@@ -16,7 +17,7 @@
                 return {real: sample, imaginary: 0};
             });
 
-            B = Fourier.DFT(N, xComplex);
+            B = JP.Fourier.DFT(N, xComplex);
 
             frequencyMatrix.push(B);
         });
@@ -31,7 +32,7 @@
             return _.map(segment, function (sample, sampleIndex) {
                 complexFilterElement = {real: filter[sampleIndex], imaginary: 0};
 
-                return Complex.multiply(sample, complexFilterElement);
+                return JP.Complex.multiply(sample, complexFilterElement);
             });
         });
     };

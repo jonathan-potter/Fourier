@@ -1,13 +1,14 @@
 ;(function () {
-	var multiply;
+	var addition, Complex, equals, multiply;
 
-	Complex = window.Complex || {};
+	JP = window.JP || {};
+    Complex = JP.Complex = {};
 
     equals = Complex.equals = function (number1, number2) {
         var imaginaryEquals, realEquals;
 
-        realEquals      = MathStuff.floatEquals(number1.real,      number2.real);
-        imaginaryEquals = MathStuff.floatEquals(number1.imaginary, number2.imaginary);
+        realEquals      = JP.MathStuff.floatEquals(number1.real,      number2.real);
+        imaginaryEquals = JP.MathStuff.floatEquals(number1.imaginary, number2.imaginary);
 
         return realEquals && imaginaryEquals;
     };

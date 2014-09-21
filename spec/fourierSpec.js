@@ -18,9 +18,9 @@ describe("Fourier", function () {
                 [{real: 1, imaginary: 0}, {real: -1, imaginary: -0}, {real:  1, imaginary:  0}, {real: -1, imaginary: -0}],
                 [{real: 1, imaginary: 0}, {real:  0, imaginary:  1}, {real: -1, imaginary: -0}, {real: -0, imaginary: -1}]
             ];
-            matrix = Fourier.DFTMatrix(N);
+            matrix = JP.Fourier.DFTMatrix(N);
 
-            expect(Matrix.complexEquals(matrix, correctMatrix)).toBe(true);
+            expect(JP.Matrix.complexEquals(matrix, correctMatrix)).toBe(true);
         });
     });
 
@@ -55,9 +55,9 @@ describe("Fourier", function () {
                 {real:  0, imaginary: 0}
             ];
 
-            B = Fourier.DFT(N, x);
+            B = JP.Fourier.DFT(N, x);
 
-            expect(Matrix.complexEquals([B], [correctB])).toBe(true);
+            expect(JP.Matrix.complexEquals([B], [correctB])).toBe(true);
         });
     });
 });

@@ -1,7 +1,8 @@
 ;(function () {
-	var DFT, DFTMatrix;
+	var DFT, DFTMatrix, Fourier;
 
-	Fourier = window.Fourier || {};
+	JP = window.JP || {};
+    Fourier = JP.Fourier = {};
 
 	DFTMatrix = Fourier.DFTMatrix = function (N) {
 		var imaginary, k, matrix, n, real;
@@ -25,7 +26,7 @@
 
 		X = DFTMatrix(N);
 
-		B = Matrix.complexMultiply(X, x);
+		B = JP.Matrix.complexMultiply(X, x);
 
 		return B;
 	};
