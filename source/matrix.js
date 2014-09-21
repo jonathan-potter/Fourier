@@ -9,11 +9,11 @@
 
         N = X.length;
         K = X[0].length;
-        for (n = 0; n < N; n++) {
-            for (k = 0; k < K; k++) {
+        _.times(N, function (n) {
+            _.times(K, function (k) {
                 if (!Complex.equals(X[n][k], Y[n][k])) return false;
-            }
-        }
+            });
+        });
 
         return true
     };
@@ -27,12 +27,13 @@
 
 		N = X.length;
 		B = [];
-		for (k = 0; k < N; k++) {
+        _.times(N, function (k) {
+
 			B[k] = {real: 0, imaginary: 0};
-			for (n = 0; n < N; n++) {
+            _.times(N, function (n) {
 				B[k] =  Complex.addition(Complex.multiply(X[k][n], x[n]), B[k]);
-			}
-		}
+			});
+        });
 
 		return B;
 	};

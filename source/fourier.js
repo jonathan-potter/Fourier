@@ -7,15 +7,15 @@
 		var imaginary, k, matrix, n, real;
 
 		matrix = [];
-		for (n = 0; n < N; n++) {
+        _.times(N, function (n) {
 			matrix.push([]);
-			for (k = 0; k < N; k++) {
+			_.times(N, function (k) {
 					 real = Math.cos(2 * Math.PI * k * n / N);
 				imaginary = Math.sin(-2 * Math.PI * k * n / N);
 
 				matrix[n][k] = {real: real, imaginary: imaginary};
-			}
-		}
+			});
+		});
 
 		return matrix;
 	};

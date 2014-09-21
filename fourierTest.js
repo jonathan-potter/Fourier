@@ -10,10 +10,11 @@
 	// simulate signal
     t = 0;			// time in seconds
 	x = [];			// sample vector
-	for (n = 0; n < N; n++) {
+
+    _.times(N, function (n) {
 		t += T;
 		x[n] = {real: Math.cos(2 * Math.PI * fo1 * t) + Math.cos(2 * Math.PI * fo2 * t), imaginary: 0};
-	}
+	});
 
 	B = Fourier.DFT(N, x);
 
@@ -27,7 +28,7 @@
 		imageData = ctx.getImageData(0, 0, N, N);
 		var data = imageData.data;
 
-		for (n = 0; n < N; n++) {
+        _.times(N, function (n) {
 			// ~~ is equivalent to Math.floor() but faster maybe?;
 			i = (~~(x[n].imaginary + N / 2) * N + n) * 4;
 			// i = ((N / 2) * N + n) * 4;
