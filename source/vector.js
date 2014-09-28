@@ -48,8 +48,8 @@
 
     unzip = Vector.unzip = function (vector) {
         return {
-             left: _.select(vector, function (element, elementIndex) { return elementIndex % 2 === 0 }),
-            right: _.select(vector, function (element, elementIndex) { return elementIndex % 2 === 1 })
+             left: _.select(vector, function (_, elementIndex) { return elementIndex % 2 === 0 }),
+            right: _.select(vector, function (_, elementIndex) { return elementIndex % 2 === 1 })
         };
     };
 

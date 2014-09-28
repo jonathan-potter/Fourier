@@ -1,8 +1,17 @@
 ;(function () {
-	var addition, Complex, equals, multiply;
+	var addition, Complex, equals, multiply, subtraction;
 
 	JP = window.JP || {};
     Complex = JP.Complex = {};
+
+	addition = Complex.addition = function (a, b) {
+		var imaginary, real;
+
+			 real = a.real + b.real;
+		imaginary = a.imaginary + b.imaginary;
+
+		return {real: real, imaginary: imaginary};
+	};
 
     equals = Complex.equals = function (number1, number2) {
         var imaginaryEquals, realEquals;
@@ -22,11 +31,11 @@
 		return {real: real, imaginary: imaginary};
 	};
 
-	addition = Complex.addition = function (a, b) {
+	subtraction = Complex.subtraction = function (a, b) {
 		var imaginary, real;
 
-			 real = a.real + b.real;
-		imaginary = a.imaginary + b.imaginary;
+			 real = a.real - b.real;
+		imaginary = a.imaginary - b.imaginary;
 
 		return {real: real, imaginary: imaginary};
 	};

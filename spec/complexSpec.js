@@ -52,4 +52,22 @@ describe("Complex", function () {
             expect(JP.Complex.equals(answer, rightAnswer)).toBe(true);
         });
     });
+
+    describe("subtraction", function () {
+        var number1, number2;
+
+        beforeEach(function () {
+            number1 = { real: 4.56, imaginary: 7.89 };
+            number2 = { real: 1.23, imaginary: 1.23 };
+        });
+
+        it("adds two complex numbers", function () {
+            var rightAnswer, answer;
+
+            rightAnswer = { real: 3.33, imaginary: 6.66 };
+            answer      = JP.Complex.subtraction(number1, number2);
+
+            expect(JP.Complex.equals(answer, rightAnswer)).toBe(true);
+        });
+    });
 });

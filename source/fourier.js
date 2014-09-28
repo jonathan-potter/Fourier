@@ -32,7 +32,7 @@
 	};
 
     FFT = Fourier.FFT = function (x) {
-        var N;
+        var B, elementIndex, fftVectors, halfVectros, leftElement, n, N, rightElement;
 
         x = JP.Vector.lengthenToRadix2(x);
         N = x.length;
@@ -40,8 +40,25 @@
         if (N === 1) {
             return x;
         } else {
-            halfVectors = JP.Vector.bisect(x);
-            // i think i need a comb bisect
+            halfVectors      = JP.Vector.unzip(x);
+
+            fftVectors       = {};
+            fftVectors.left  = FFT(halfVectors.left);
+            fftVectors.right = FFT(halfVectors.right);
+
+            B = { firstHalf: [], secondHalf: [] };
+            for (elementIndex = 0; elementIndex < N / 2; elementIndex++) {
+                leftElement  = fftVectors.left[elementIndex];
+                rightElement = fftVectors.right[elementIndex];
+
+                B.firstHalf.push(JP.Complex.addition(leftElement, rightElement));
+                B.secondHalf.push(JP.Complex.subtraction(leftElement, rightElement));
+            }
+
+            var b = B.firstHalf.concat(B.secondHalf);
+            console.log(_.map(b, function (thing) { return thing.real }));
+            console.log(_.map(b, function (thing) { return thing.imaginary }));
+            return B.firstHalf.concat(B.secondHalf);
         }
     };
 })();

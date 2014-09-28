@@ -6,19 +6,21 @@
 
     complexEquals = Matrix.complexEquals = function (X, Y) {
         /** I am assumeing you gave me two equally sized matrices **/
-        var k, K, n, N;
+        var k, K, n, N, notEqual;
 
         N = X.length;
         K = X[0].length;
+
+        notEqual = false;
         _.times(N, function (n) {
             _.times(K, function (k) {
                 if (!JP.Complex.equals(X[n][k], Y[n][k])) {
-                    return false;
+                    notEqual = true;
                 }
             });
         });
 
-        return true
+        return !notEqual;
     };
 
 	complexMuliply = Matrix.complexMultiply = function (X, x) {

@@ -90,7 +90,7 @@ describe("AudioFourier", function () {
 
             correctResult = [
                 [
-                    {real: -0.25, imaginary:  0.00},
+                    {real: -1.00, imaginary:  0.00},
                     {real:  0.00, imaginary:  0.00}
                 ],
                 [

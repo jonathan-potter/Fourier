@@ -24,9 +24,10 @@ describe("Fourier", function () {
         });
     });
 
-    describe("DFT", function () {
-        it("performs a discrete fourier transform on an input vector", function () {
-            var B, x, N;
+    describe("Fourier Transforms", function () {
+        var B, x, N;
+
+        beforeEach(function () {
 
             N = 8;
             /**
@@ -54,10 +55,22 @@ describe("Fourier", function () {
                 {real:  0, imaginary: 0},
                 {real:  0, imaginary: 0}
             ];
+        });
 
-            B = JP.Fourier.DFT(N, x);
+        describe("DFT", function () {
+            it("performs a discrete fourier transform on an input vector", function () {
+                B = JP.Fourier.DFT(N, x);
 
-            expect(JP.Matrix.complexEquals([B], [correctB])).toBe(true);
+                expect(JP.Matrix.complexEquals([B], [correctB])).toBe(true);
+            });
+        });
+
+        describe("FFT", function () {
+            it("performs a discrete fourier transform on an input vector", function () {
+                B = JP.Fourier.FFT(x);
+
+                expect(JP.Matrix.complexEquals([B], [correctB])).toBe(true);
+            });
         });
     });
 });
