@@ -1,5 +1,5 @@
 ;(function () {
-	var DFT, DFTMatrix, Fourier;
+	var DFT, DFTMatrix, FFT, Fourier;
 
 	JP = window.JP || {};
     Fourier = JP.Fourier = {};
@@ -30,4 +30,18 @@
 
 		return B;
 	};
+
+    FFT = Fourier.FFT = function (x) {
+        var N;
+
+        x = JP.Vector.lengthenToRadix2(x);
+        N = x.length;
+
+        if (N === 1) {
+            return x;
+        } else {
+            halfVectors = JP.Vector.bisect(x);
+            // i think i need a comb bisect
+        }
+    };
 })();

@@ -16,7 +16,7 @@
 		x[n] = {real: Math.cos(2 * Math.PI * fo1 * t) + Math.cos(2 * Math.PI * fo2 * t), imaginary: 0};
 	});
 
-	B = Fourier.DFT(N, x);
+	B = JP.Fourier.DFT(N, x);
 
 	plot = function (x, N) {
 		var canvas, ctx, data, imageData, n, v;
