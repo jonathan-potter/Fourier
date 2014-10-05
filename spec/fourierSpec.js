@@ -25,7 +25,7 @@ describe("Fourier", function () {
     });
 
     describe("Fourier Transforms", function () {
-        var B, x, N;
+        var Bdft, Bfft, x, N;
 
         beforeEach(function () {
 
@@ -67,9 +67,10 @@ describe("Fourier", function () {
 
         describe("FFT", function () {
             it("performs a discrete fourier transform on an input vector", function () {
-                B = JP.Fourier.FFT(x);
+                Bfft = JP.Fourier.FFT(x);
+                Bdft = JP.Fourier.DFT(N, x);
 
-                expect(JP.Matrix.complexEquals([B], [correctB])).toBe(true);
+                expect(JP.Matrix.complexEquals([Bfft], [Bdft])).toBe(true);
             });
         });
     });

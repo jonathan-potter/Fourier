@@ -1,22 +1,4 @@
 describe("Complex", function () {
-    describe("equals", function () {
-        var equal1, equal2, notEqual;
-
-        beforeEach(function () {
-            equal1   = {real: 1.2345, imaginary: 6.7890};
-            equal2   = {real: 1.2345, imaginary: 6.7890};
-            notEqual = {real: 1, imaginary: 0};
-        });
-
-        it("returns true for complex numbers that are equal", function () {
-            expect(JP.Complex.equals(equal1, equal2)).toBe(true);
-        });
-
-        it("returns false for complex numbers that are not equal", function () {
-            expect(JP.Complex.equals(equal1, notEqual)).toBe(false);
-        });
-    });
-
     describe("addition", function () {
         var number1, number2;
 
@@ -32,6 +14,24 @@ describe("Complex", function () {
             answer      = JP.Complex.addition(number1, number2);
 
             expect(JP.Complex.equals(answer, rightAnswer)).toBe(true);
+        });
+    });
+
+    describe("equals", function () {
+        var equal1, equal2, notEqual;
+
+        beforeEach(function () {
+            equal1   = {real: 1.2345, imaginary: 6.7890};
+            equal2   = {real: 1.2345, imaginary: 6.7890};
+            notEqual = {real: 1, imaginary: 0};
+        });
+
+        it("returns true for complex numbers that are equal", function () {
+            expect(JP.Complex.equals(equal1, equal2)).toBe(true);
+        });
+
+        it("returns false for complex numbers that are not equal", function () {
+            expect(JP.Complex.equals(equal1, notEqual)).toBe(false);
         });
     });
 

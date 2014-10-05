@@ -39,7 +39,7 @@
         N = JP.MathStuff.roundUpToRadix2(Nshort);;
         if (Nshort < N) {
             _.times((N - Nshort), function () {
-                x.push(0);
+                x.push({real: 0, imaginary: 0});
             });
         }
 
@@ -47,6 +47,9 @@
     };
 
     unzip = Vector.unzip = function (vector) {
+		if (!(vector instanceof Array)) {
+            console.error("not an array!");
+        }
         return {
              left: _.select(vector, function (_, elementIndex) { return elementIndex % 2 === 0 }),
             right: _.select(vector, function (_, elementIndex) { return elementIndex % 2 === 1 })

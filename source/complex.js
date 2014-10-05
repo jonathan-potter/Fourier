@@ -1,8 +1,12 @@
 ;(function () {
-	var addition, Complex, equals, multiply, subtraction;
+	var absolute, addition, Complex, equals, multiply, subtraction;
 
 	JP = window.JP || {};
     Complex = JP.Complex = {};
+
+	absolute = Complex.absolute = function (z) {
+		return Math.sqrt(z.real * z.real + z.imaginary * z.imaginary);
+	};
 
 	addition = Complex.addition = function (a, b) {
 		var imaginary, real;

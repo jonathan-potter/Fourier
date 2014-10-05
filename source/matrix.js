@@ -8,6 +8,11 @@
         /** I am assumeing you gave me two equally sized matrices **/
         var k, K, n, N, notEqual;
 
+        if (!(X && X.length && X[0].length)) {
+            console.error("Matrix#complexEquals: pass in a matrix!");
+            return false;
+        }
+
         N = X.length;
         K = X[0].length;
 

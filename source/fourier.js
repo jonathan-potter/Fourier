@@ -11,8 +11,8 @@
         _.times(N, function (n) {
 			matrix.push([]);
 			_.times(N, function (k) {
-					 real = Math.cos(2 * Math.PI * k * n / N);
-				imaginary = Math.sin(-2 * Math.PI * k * n / N);
+                real      = Math.cos(  2 * Math.PI * k * n / N );
+				imaginary = Math.sin( -2 * Math.PI * k * n / N );
 
 				matrix[n][k] = {real: real, imaginary: imaginary};
 			});
@@ -32,7 +32,7 @@
 	};
 
     FFT = Fourier.FFT = function (x) {
-        var B, elementIndex, fftVectors, halfVectros, leftElement, n, N, rightElement;
+        var B, fftVectors, halfVectors, N;
 
         x = JP.Vector.lengthenToRadix2(x);
         N = x.length;
@@ -47,17 +47,21 @@
             fftVectors.right = FFT(halfVectors.right);
 
             B = { firstHalf: [], secondHalf: [] };
-            for (elementIndex = 0; elementIndex < N / 2; elementIndex++) {
-                leftElement  = fftVectors.left[elementIndex];
-                rightElement = fftVectors.right[elementIndex];
+            _.times((N / 2), function (k) {
+                var imaginary, left, real, right, twiddleFactor;
 
-                B.firstHalf.push(JP.Complex.addition(leftElement, rightElement));
-                B.secondHalf.push(JP.Complex.subtraction(leftElement, rightElement));
-            }
+                left  = fftVectors.left[k];
+                right = fftVectors.right[k];
 
-            var b = B.firstHalf.concat(B.secondHalf);
-            console.log(_.map(b, function (thing) { return thing.real }));
-            console.log(_.map(b, function (thing) { return thing.imaginary }));
+                real          = Math.cos(  2 * Math.PI * k / N );
+                imaginary     = Math.sin( -2 * Math.PI * k / N );
+                twiddleFactor = {real: real, imaginary: imaginary};
+                // console.log("real: " + real + ", imaginary: " + imaginary + ", N: " + N);
+
+                B.firstHalf.push( JP.Complex.addition(    left, JP.Complex.multiply(right, twiddleFactor) ));
+                B.secondHalf.push(JP.Complex.subtraction( left, JP.Complex.multiply(right, twiddleFactor) ));
+            });
+
             return B.firstHalf.concat(B.secondHalf);
         }
     };
